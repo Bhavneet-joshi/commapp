@@ -1,0 +1,31 @@
+/* Mobile navbar styles */
+.navbar {
+  position: relative;
+  width: 100%;
+}
+
+.mobile-nav {
+  display: none; /* Hidden by default on desktop */
+}
+
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none; /* Hide desktop nav on mobile */
+  }
+  
+  .mobile-nav {
+    display: block; /* Show mobile nav on mobile */
+    width: 100%;
+  }
+  
+  /* Ensure the mobile menu container is positioned correctly */
+  .mobile-menu {
+    width: 100%;
+    z-index: 1000;
+  }
+  
+  /* Make the toggle button more touch-friendly */
+  .mobile-menu-toggle {
+    -webkit-tap-highlight-color: transparent; /* Remove tap highlight on iOS */
+  }
+} 

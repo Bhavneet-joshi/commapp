@@ -3,7 +3,7 @@ import HeroSection from './HeroSection';
 import FeatureCard from './FeatureCard';
 import TestimonialCard from './TestimonialCard';
 
-const HomePage = ({ onNavigate }) => {
+const HomePage = () => {
   const features = [
     {
       color: 'yellow',
@@ -40,18 +40,49 @@ const HomePage = ({ onNavigate }) => {
   return (
     <main>
       <div className="container">
-        {/* Header Date Display */}
+        
         <div className="date-display-wrapper">
+          
           <div className="section-container grid-item bg-black">
             <div className="date-content">
               <div className="date-display" id="current-day"></div>
-              <div className="date-month" id="current-month-year"></div>
+              <div className="date-month" id="current-month-year" style={{ 
+                display: 'inline-block',  // Makes the div only as wide as its content
+                padding: '10px 15px',     // Padding around the content
+                margin: '0 auto',         // Centers the div if it's in a block container
+                 // Optional: matches your dark background
+                borderRadius: '4px'       // Optional: slightly rounded corners
+              }}>
+                <div style={{ display: 'flex', alignItems: 'flex-start' }}>
+                  <span style={{ 
+                    fontSize: '60px', 
+                    fontWeight: 'bold', 
+                    lineHeight: '0.9', 
+                    marginRight: '12px',
+                    color: '#FFD700'
+                  }}>
+                    {new Date().getDate()}
+                  </span>
+                  <div style={{ 
+                    display: 'flex', 
+                    flexDirection: 'column', 
+                    justifyContent: 'center',
+                    fontSize: '18px',
+                    color: '#FFD700'
+                  }}>
+                    <span style={{ marginBottom: '2px' }}>{new Date().toLocaleString('default', { month: 'long' }).toLowerCase()}</span>
+                    <span>{new Date().getFullYear()}</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
         
+        {/* Add this code where you want the date to appear (likely right after your navbar) */}
+        
         {/* Hero Section */}
-        <HeroSection onNavigate={onNavigate} />
+        <HeroSection />
         
         {/* Features Section */}
         <div className="features-section section-container grid-item">
@@ -67,12 +98,9 @@ const HomePage = ({ onNavigate }) => {
               </p>
               
               <div className="cta-wrapper">
-                <button 
-                  className="accent-btn"
-                  onClick={() => onNavigate && onNavigate('events')}
-                >
+                <a href="/join" className="accent-btn">
                   Join Today
-                </button>
+                </a>
               </div>
             </div>
             
@@ -103,10 +131,25 @@ const HomePage = ({ onNavigate }) => {
             </div>
             
             <div className="stats-cta">
-              <div className="explore-btn">Explore</div>
-              <svg className="arrow-icon-small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-              </svg>
+              <a 
+                href="/events" 
+                className="explore-button" 
+                style={{
+                  display: 'inline-block',
+                  padding: '12px 24px',
+                  backgroundColor: '#FFD700',
+                  color: '#1a1a1a',
+                  textDecoration: 'none',
+                  fontWeight: 'bold',
+                  borderRadius: '4px',
+                  fontSize: '16px',
+                  marginTop: '20px',
+                  cursor: 'pointer',
+                  transition: 'background-color 0.3s ease'
+                }}
+              >
+                EXPLORE EVENTS
+              </a>
             </div>
           </div>
         </div>
@@ -145,12 +188,9 @@ const HomePage = ({ onNavigate }) => {
             </p>
             
             <div className="cta-wrapper">
-              <button 
-                className="accent-btn"
-                onClick={() => onNavigate && onNavigate('signup')}
-              >
+              <a href="/signup" className="accent-btn">
                 Sign Up Today
-              </button>
+              </a>
             </div>
           </div>
         </div>
