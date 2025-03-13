@@ -5,7 +5,7 @@ import HomePage from './components/HomePage';
 import EventsPage from './components/EventsPage';
 import ContactPage from './components/ContactPage';
 
-function App() {
+function SimpleApp() {
   const [currentPage, setCurrentPage] = useState('home');
   
   // Listen for URL changes
@@ -27,8 +27,23 @@ function App() {
     // Listen for popstate events (back/forward navigation)
     window.addEventListener('popstate', handleLocationChange);
     
+    // Listen for custom navigation events from HomePage
+    const handleNavChange = (event) => {
+      const path = event.detail.path;
+      if (path === '/events') {
+        setCurrentPage('events');
+      } else if (path === '/contact') {
+        setCurrentPage('contact');
+      } else {
+        setCurrentPage('home');
+      }
+    };
+    
+    window.addEventListener('navchange', handleNavChange);
+    
     return () => {
       window.removeEventListener('popstate', handleLocationChange);
+      window.removeEventListener('navchange', handleNavChange);
     };
   }, []);
   
@@ -49,7 +64,7 @@ function App() {
       case 'contact':
         return <ContactPage />;
       default:
-        return <HomePage navigateTo={navigateTo} />;
+        return <HomePage />;
     }
   };
   
@@ -61,4 +76,4 @@ function App() {
   );
 }
 
-export default App;
+export default SimpleApp; 

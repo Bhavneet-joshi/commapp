@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Navbar.css'; // Make sure you have this CSS file
 
-function Navbar() {
+function Navbar({ navigateTo, currentPage }) {
   // State to track if mobile menu is open
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   
@@ -28,22 +28,39 @@ function Navbar() {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
-  // Function to navigate to a page - using direct href approach
-  const navigateTo = (path) => {
-    console.log("Navigating to:", path);
-    window.location.href = path;
-    setMobileMenuOpen(false); // Close menu after navigation
-  };
-
   return (
     <nav className="navbar">
       {/* Desktop Navigation */}
       <div className="desktop-nav">
         <div className="logo">COMMUNION</div>
         <ul className="nav-links">
-          <li><a href="/">Home</a></li>
-          <li><a href="/events">Events</a></li>
-          <li><a href="/contact">Contact</a></li>
+          <li>
+            <a 
+              href="/" 
+              onClick={(e) => { e.preventDefault(); navigateTo('home'); }}
+              className={currentPage === 'home' ? 'active' : ''}
+            >
+              Home
+            </a>
+          </li>
+          <li>
+            <a 
+              href="/events" 
+              onClick={(e) => { e.preventDefault(); navigateTo('events'); }}
+              className={currentPage === 'events' ? 'active' : ''}
+            >
+              Events
+            </a>
+          </li>
+          <li>
+            <a 
+              href="/contact" 
+              onClick={(e) => { e.preventDefault(); navigateTo('contact'); }}
+              className={currentPage === 'contact' ? 'active' : ''}
+            >
+              Contact
+            </a>
+          </li>
         </ul>
       </div>
       
@@ -66,39 +83,9 @@ function Navbar() {
         {mobileMenuOpen && (
           <div className="mobile-menu-container">
             <ul className="mobile-menu">
-              <li>
-                <a 
-                  href="/" 
-                  onClick={(e) => {
-                    e.preventDefault();
-                    navigateTo('/');
-                  }}
-                >
-                  Home
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="/events" 
-                  onClick={(e) => {
-                    e.preventDefault();
-                    navigateTo('/events');
-                  }}
-                >
-                  Events
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="/contact" 
-                  onClick={(e) => {
-                    e.preventDefault();
-                    navigateTo('/contact');
-                  }}
-                >
-                  Contact
-                </a>
-              </li>
+              <li><a href="/" onClick={(e) => { e.preventDefault(); navigateTo('home'); }}>Home</a></li>
+              <li><a href="/events" onClick={(e) => { e.preventDefault(); navigateTo('events'); }}>Events</a></li>
+              <li><a href="/contact" onClick={(e) => { e.preventDefault(); navigateTo('contact'); }}>Contact</a></li>
             </ul>
           </div>
         )}

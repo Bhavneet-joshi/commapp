@@ -3,7 +3,7 @@ import HeroSection from './HeroSection';
 import FeatureCard from './FeatureCard';
 import TestimonialCard from './TestimonialCard';
 
-const HomePage = () => {
+function HomePage({ navigateTo }) {
   const features = [
     {
       color: 'yellow',
@@ -133,7 +133,8 @@ const HomePage = () => {
             <div className="stats-cta">
               <a 
                 href="/events" 
-                className="explore-button" 
+                onClick={(e) => { e.preventDefault(); navigateTo('events'); }}
+                className="explore-button"
                 style={{
                   display: 'inline-block',
                   padding: '12px 24px',
@@ -144,8 +145,7 @@ const HomePage = () => {
                   borderRadius: '4px',
                   fontSize: '16px',
                   marginTop: '20px',
-                  cursor: 'pointer',
-                  transition: 'background-color 0.3s ease'
+                  cursor: 'pointer'
                 }}
               >
                 EXPLORE EVENTS
@@ -197,6 +197,6 @@ const HomePage = () => {
       </div>
     </main>
   );
-};
+}
 
 export default HomePage; 

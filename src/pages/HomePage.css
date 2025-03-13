@@ -1,0 +1,87 @@
+.home-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Date display */
+.date-display {
+  display: inline-block;
+  padding: 10px 15px;
+  margin: 20px 0;
+}
+
+.date-inner {
+  display: flex;
+  align-items: flex-start;
+}
+
+.date-day {
+  font-size: clamp(36px, 8vw, 60px);
+  font-weight: bold;
+  line-height: 0.9;
+  margin-right: clamp(8px, 2vw, 12px);
+  color: #FFD700;
+}
+
+.date-month-year {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: clamp(14px, 3vw, 18px);
+  color: #FFD700;
+}
+
+/* Hero section */
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 60px 0;
+}
+
+.hero-title {
+  font-size: clamp(36px, 10vw, 72px);
+  margin-bottom: 20px;
+  color: #FFD700;
+}
+
+.community-title {
+  font-size: clamp(24px, 6vw, 36px);
+  margin-bottom: 30px;
+}
+
+/* Featured events section */
+.featured-events-section {
+  padding: 60px 0;
+}
+
+.section-title {
+  font-size: 28px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.view-all-container {
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 40px 0;
+  }
+  
+  .featured-events-section {
+    padding: 40px 0;
+  }
+} 

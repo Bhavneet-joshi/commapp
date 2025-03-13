@@ -1,0 +1,36 @@
+.button {
+  display: inline-block;
+  padding: 12px 24px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  font-size: 16px;
+}
+
+.button-primary {
+  background-color: #FFD700;
+  color: #1a1a1a;
+}
+
+.button-primary:hover {
+  background-color: #e6c200;
+}
+
+.button-secondary {
+  background-color: transparent;
+  color: #FFD700;
+  border: 2px solid #FFD700;
+}
+
+.button-secondary:hover {
+  background-color: rgba(255, 215, 0, 0.1);
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+} 

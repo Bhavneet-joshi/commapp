@@ -1,0 +1,18 @@
+.error-boundary {
+  padding: 20px;
+  margin: 20px;
+  background-color: #2a2a2a;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.refresh-button {
+  background-color: #FFD700;
+  color: #1a1a1a;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 15px;
+} 
