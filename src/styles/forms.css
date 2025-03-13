@@ -1,0 +1,22 @@
+/* Create this file if it doesn't exist and import it in your component */
+
+/* Aggressive styling for select elements */
+.dark-select {
+  background-color: #333 !important;
+  color: white !important;
+  border: 1px solid #555 !important;
+}
+
+.dark-select option {
+  background-color: #333 !important;
+  color: white !important;
+  padding: 10px !important;
+}
+
+/* Alternative approach - custom select styling */
+.custom-select-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* Add this to your index.html in the <head> section */ 

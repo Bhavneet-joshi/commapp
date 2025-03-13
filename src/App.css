@@ -780,22 +780,22 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .category-religious .event-category {
-  background-color: rgba(123, 66, 246, 0.2);
+  background-color: rgba(0, 0, 0, 0.2);
   color: var(--secondary-color);
 }
 
 .category-social .event-category {
-  background-color: rgba(0, 184, 148, 0.2);
+  background-color: rgba(0, 0, 0, 0.2);
   color: #00b894;
 }
 
 .category-charity .event-category {
-  background-color: rgba(225, 112, 85, 0.2);
+  background-color: rgba(0, 0, 0, 0.838);
   color: #e17055;
 }
 
 .category-educational .event-category {
-  background-color: rgba(9, 132, 227, 0.2);
+  background-color: rgba(0, 0, 0, 0.2);
   color: #0984e3;
 }
 
